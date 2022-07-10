@@ -52,3 +52,10 @@ class Snake:
         """This function moves the snake right"""
         if self.head.heading() != 180:
             self.head.setheading(0)
+
+    def reset(self):
+        for seg in self.segments:
+            seg.goto(1000,1000)
+        self.segments.clear()
+        self.__draw_body()
+        self.head = self.segments[0]
