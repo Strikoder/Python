@@ -5,6 +5,15 @@ NATO_phonetic_dict = {row["letter"]: row["code"] for (index, row) in data.iterro
 print(NATO_phonetic_dict)
 
 
-word = input("Enter a word: ").upper()
-output_list = [NATO_phonetic_dict[letter] for letter in word]
-print(output_list)
+def generate():
+    word = input("Enter a word: ").upper()
+    try:
+        output_list = [NATO_phonetic_dict[letter] for letter in word]
+    except KeyError as error_msg:
+        print(f"Haha, you have entered a valid value, did you parents called you{error_msg} in your childhood?")
+        generate()
+    else:
+        print(output_list)
+
+
+generate()
